@@ -24,11 +24,11 @@ pipeline {
         }
 
         stage('Test') {
-            steps {
-                sh 'java -cp src/main/java com.example.HelloDevOpsTest'
-            }
-        }
-
+    steps {
+        echo 'Running tests...'
+        sh 'java -cp bin com.example.HelloDevOpsTest'
+    }
+}
         stage('Archive') {
             steps {
                 archiveArtifacts artifacts: 'app.jar', fingerprint: true
